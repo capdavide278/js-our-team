@@ -2,63 +2,60 @@
 Ogni membro ha le informazioni necessarie per stampare la relativa card: Nome, Ruolo e Foto.
 Una volta definita la struttura dati, prendendo come riferimento la card di esempio presente nell’html, stampare dinamicamente una card per ogni membro del team.*/
 
-const container = document.getElementsByClassName("team-container");
-
 
 const azienda = 
 [
     {
         "nome" : "Wayne Barnett",
         "ruolo" : "Founder & CEO",
-        "img.src" : "img/wayne-barnett-founder-ceo.jpg"
+        "foto" : "img/wayne-barnett-founder-ceo.jpg"
     },
 
     {
         "nome" : "Angela Caroll",
         "ruolo" : "Chief editor",
-        "img.src" :  "img/angela-caroll-chief-editor.jpg"
+        "foto" :  "img/angela-caroll-chief-editor.jpg"
     },
 
     {
         "nome" : "Walter Gordon",
         "ruolo" : "Office Manager",
-        "img.src" :  "img/walter-gordon-office-manager.jpg"
+        "foto" :  "img/walter-gordon-office-manager.jpg"
     },
 
     {
         "nome" : "Angela Lopez",
         "ruolo" : "Social Media Manager",
-        "img.src" :  "img/angela-lopez-social-media-manager.jpg"
+        "foto" :  "img/angela-lopez-social-media-manager.jpg"
     },
 
     {
         "nome" : "Scott Estrada",
         "ruolo" : "Developer",
-        "img.src" :  "img/scott-estrada-developer.jpg"
+        "foto" :  "img/scott-estrada-developer.jpg"
     },
 
     {
         "nome" : "Barbara Ramos",
         "ruolo" : "Graphic Designer",
-        "img.src" :  "img/barbara-ramos-graphic-designer.jpg"
+        "foto" :  "img/barbara-ramos-graphic-designer.jpg"
     }
 
 ];
-
-
- console.log(azienda);
-
-
+ let container = document.querySelector('.team-container');
+ 
  for (let i = 0; i < azienda.length; i ++) {
     let stuff = azienda[i];
 
     const card = document.createElement('div');
     card.classList.add('team-card');
-
+    container.append(card);
+    
     const img = document.createElement('div');
     img.classList.add('card-image');
 
     const profilo = document.createElement("img");
+    profilo.src = stuff.foto;
     img.appendChild(profilo);
 
     const text = document.createElement('div');
@@ -75,8 +72,7 @@ const azienda =
     Nome.innerText = stuff.nome; 
     Ruolo.innerText = stuff.ruolo;
 
-    img.src = stuff["img.src"];
-    container.append(card);
+    /* img.src = stuff.foto; */
 
     console.log(card);
  }
